@@ -1,0 +1,25 @@
+# Conan specific files
+conanbuildinfo.cmake
+conanbuildinfo.txt
+conaninfo.txt
+graph_info.json
+
+# CMake specific files
+CMakeCache.txt
+CMakeUserPresets.json
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+build/
+
+# Output directory
+out/
+
+# General files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Store
