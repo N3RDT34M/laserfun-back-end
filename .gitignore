@@ -23,3 +23,8 @@ out/
 *.swp
 *.swo
 *.DS_Store
+.vs/
+
+CMakePresets.json
+
+CMakeSettings.json

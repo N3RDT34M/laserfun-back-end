@@ -1,6 +1,8 @@
 [requires]
-
-
+nlohmann_json/3.11.3
+curlpp/0.8.1.cci.20240530
 [generators]
 CMakeDeps
 CMakeToolchain
+[layout]
+cmake_layout
