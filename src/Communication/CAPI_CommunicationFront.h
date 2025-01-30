@@ -1,3 +1,4 @@
+#include "CAPI_CommunicationInstance.h"
 
 class CAPI_CommunicationFront : public CAPI_CommunicationInstance {
 

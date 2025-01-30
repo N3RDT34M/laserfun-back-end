@@ -1,4 +1,7 @@
 #pragma once
+#include "../Utils/CEvents.h"
+#include "../Utils/CObserver.h"
+
 class CGameManager : public CObserver
 {
 public:

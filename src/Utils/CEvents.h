@@ -2,6 +2,7 @@
 #include <string>
 #include <typeindex>
 #include <vector>
+#include <nlohmann/json.hpp>
 
 class IEvent {
 public:
@@ -39,6 +40,12 @@ namespace Events {
 
     struct BroadcastMessage : public CEvent<std::string> {
       explicit BroadcastMessage(const std::string& msg) : CEvent(msg) {}
+    };
+  }
+
+  namespace HTTP {
+    struct JsonRequestReceived : public CEvent<nlohmann::json> {
+      explicit JsonRequestReceived(const nlohmann::json& data) : CEvent(data) {}
     };
   }
 }

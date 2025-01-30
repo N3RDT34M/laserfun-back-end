@@ -1,5 +1,4 @@
-#include "CAPI_RadioConnector.h"
+#include "CAPI_ConnectorRadio.h"
+#include "../Utils/CEvents.h"
 
-void CAPI_RadioConnector::onNotify(const IEvent& event)
-{
-}
+

@@ -1,6 +1,6 @@
-#include "CAPI_Instance.h"
+#include "CAPI_CommunicationInstance.h"
 
-CAPI_Instance::CAPI_Instance(std::shared_ptr<CAPI_GenericConnector> connector)
+CAPI_CommunicationInstance::CAPI_CommunicationInstance(CAPI_Connector* connector)
   : _connector(connector)
 {
   
