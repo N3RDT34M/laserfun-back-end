@@ -1,7 +1,7 @@
 #include "CAPI_ConnectorHttp.h"
+#include "CAPI_ConnectorHttp.h"
 #include <istream>
 #include <iostream>
-#include <thread>
 
 CAPI_ConnectorHttp::CAPI_ConnectorHttp()
 {
@@ -31,9 +31,12 @@ CAPI_ConnectorHttp::CAPI_ConnectorHttp()
     addCorsHeaders(res);
     });
 
-  //_server.listen(8000);
-  //std::thread serverThread([&]() { _server.run(); });
+  _server.listen(8000);
+}
 
+void CAPI_ConnectorHttp::startListening()
+{
+  _server.run();
 }
 
 void CAPI_ConnectorHttp::addCorsHeaders(beauty::response& res) {

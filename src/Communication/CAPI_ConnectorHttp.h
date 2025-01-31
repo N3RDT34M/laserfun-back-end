@@ -13,4 +13,5 @@ private:
   void addCorsHeaders(beauty::response& res);
 public:
   CAPI_ConnectorHttp();
+  virtual void startListening() override;
 };
