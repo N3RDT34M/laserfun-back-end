@@ -19,6 +19,7 @@ int main(void) {
   All rights reserved. Licensed under GNU Lesser General Public License v2.1
   ---------------------------------------------------------------------------
   )";
+  std::cout << "Number of processors: " << std::thread::hardware_concurrency << '\n';
   CAPI_ConnectorHttp connectorHttp;
   CAPI_ConnectorRadio connectorRadio;
 

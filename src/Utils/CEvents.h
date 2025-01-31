@@ -4,6 +4,8 @@
 #include <vector>
 #include <nlohmann/json.hpp>
 
+#include "DataStructures.h"
+
 class IEvent {
 public:
   virtual ~IEvent() = default;
@@ -24,6 +26,10 @@ public:
 
 namespace Events {
   namespace Game {
+    struct GameCreationRequest : public CEvent<std::shared_ptr<GameData>> {
+      explicit GameCreationRequest(std::shared_ptr<GameData> result) : CEvent(result) {}
+    };
+
     struct GameEnd : public CEvent<int> {
       explicit GameEnd(int result) : CEvent(result) {}
     };
