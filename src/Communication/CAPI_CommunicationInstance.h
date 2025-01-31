@@ -3,7 +3,7 @@
 
 #include "CAPI_Connector.h"
 
-class CAPI_CommunicationInstance : public CObservable
+class CAPI_CommunicationInstance : public CObservable, public CObserver
 {
 private:
   CAPI_Connector* _connector;

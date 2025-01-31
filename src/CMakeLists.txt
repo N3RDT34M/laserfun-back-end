@@ -1,7 +1,7 @@
 find_package(nlohmann_json REQUIRED)
 find_package(beauty REQUIRED)
 
-add_executable(${PROJECT_NAME} "main.cpp")
+add_executable(${PROJECT_NAME} "main.cpp" "DataStructures.h")
 
 target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
 target_link_libraries(${PROJECT_NAME} beauty::beauty)
