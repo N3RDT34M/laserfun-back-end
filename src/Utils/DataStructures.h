@@ -3,6 +3,8 @@
 #include <chrono>
 #include <memory>
 
+struct PlayerData;
+
 enum class PlayerClass {
   ECLAIREUR,
   NINJA,
@@ -35,7 +37,7 @@ struct PlayerData {
 
 struct GameData {
   std::string blueName;
-  std::string blueName;
+  std::string redName;
   std::vector<std::shared_ptr<PlayerData>> bluePlayers;
   std::vector<std::shared_ptr<PlayerData>> redPlayers;
 };

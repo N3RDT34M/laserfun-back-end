@@ -1,6 +1,6 @@
 #pragma once
-#include "../Utils/CObservable.h"
-#include "../Utils/CObserver.h"
+#include "CObservable.h"
+#include "CObserver.h"
 #include "CAPI_CommunicationInstance.h"
 #include "CAPI_Connector.h"
 

@@ -37,7 +37,7 @@ int main(void) {
     }
     catch (...)
     {
-      std::cerr << "Fatal error in HTTP Server starting. Aborting.\n";
+      std::cerr << "Fatal error in HTTP Server. Aborting.\n";
       exit(EXIT_FAILURE);
     }
   });
@@ -48,7 +48,7 @@ int main(void) {
     }
     catch (...)
     {
-      std::cerr << "Fatal error in radio communication starting. Aborting.\n";
+      std::cerr << "Fatal error in radio communication. Aborting.\n";
       exit(EXIT_FAILURE);
     }
   });

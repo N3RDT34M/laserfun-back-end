@@ -1,5 +1,5 @@
 #pragma once
-#include "../Utils/CObservable.h"
+#include "CObservable.h"
 
 #include "CAPI_Connector.h"
 
