@@ -103,6 +103,7 @@ After changing the CPP version to 20 by editing the file located in ``~/.conan/p
 Then run these commands on the host:
 
 ```bash
+sudo apt install g++ gdb make ninja-build rsync zip
 conan install . --build missing --output-folder=out/build
 conan install . --output-folder=out/build -s build_type=Debug --build=missing 
 ```

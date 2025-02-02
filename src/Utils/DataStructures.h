@@ -6,7 +6,7 @@
 
 struct PlayerData;
 
-enum class PlayerClass {
+enum PlayerClass : uint8_t {
   ECLAIREUR,
   NINJA,
   BOURRIN,
@@ -43,6 +43,45 @@ struct GameData {
   std::vector<std::shared_ptr<PlayerData>> bluePlayers;
   std::vector<std::shared_ptr<PlayerData>> redPlayers;
 };
+
+using TvestId = uint16_t;
+
+struct c_string {
+  uint8_t size;
+  char* data;
+};
+
+namespace DataStructure {
+  //WARNING
+  //DO NOT USE C++ TYPES HERE !! 
+  //THE VESTS USE C! 
+  namespace VestRadioCommunication {
+    enum Action : uint8_t {
+      HANDSHAKE, //Received by the server
+      AUTHENTIFICATE, //Sent by the server
+      KILLED,
+      ULTI
+    };
+
+    template <typename Tdata>
+    struct VestRadioData {
+      Action action;
+      TvestId vestid;
+      Tdata data;
+    };
+
+    struct AuthentificationData {
+      c_string name;
+      PlayerClass character;
+    };
+
+    struct KilledData {
+      TvestId killer;
+      TvestId killed;
+      double multiplier;
+    };
+  }
+}
 
 struct Gilet
 {

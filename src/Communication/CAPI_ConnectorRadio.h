@@ -4,5 +4,6 @@
 
 class CAPI_ConnectorRadio : public CAPI_Connector {
 public:
+  CAPI_ConnectorRadio();
   virtual void startListening() override;
 };

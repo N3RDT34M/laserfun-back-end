@@ -5,6 +5,8 @@ add_executable(${PROJECT_NAME} "main.cpp")
 
 target_link_libraries(${PROJECT_NAME} nlohmann_json::nlohmann_json)
 target_link_libraries(${PROJECT_NAME} beauty::beauty)
+target_link_libraries(${PROJECT_NAME} /usr/arm-linux-gnueabihf/lib/librf24.so)
+
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
