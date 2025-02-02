@@ -34,6 +34,7 @@ struct PlayerData {
   std::string name;
   PlayerClass character;
   std::shared_ptr<PlayerStats> stats;
+  std::shared_ptr<Gilet> id_gilet;
 };
 
 struct GameData {
@@ -41,4 +42,9 @@ struct GameData {
   std::string redName;
   std::vector<std::shared_ptr<PlayerData>> bluePlayers;
   std::vector<std::shared_ptr<PlayerData>> redPlayers;
+};
+
+struct Gilet
+{
+	std::string id_gilet;
 };
