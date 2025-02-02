@@ -13,6 +13,11 @@ public:
     End
   };
 
+  CGameManager();
+
+
+
+
   virtual void onNotify(const IEvent& event) override;
 
 
