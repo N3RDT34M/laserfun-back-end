@@ -44,7 +44,9 @@ namespace Events {
       explicit GameEnd(int result) : CEvent(result) {}
     };
 
-
+    /// <summary>
+    /// lui je sais pas a quoi il sers
+    /// </summary>
     struct PlayerScore : public CEvent<float> {
       explicit PlayerScore(float score) : CEvent(score) {}
     };
