@@ -1,7 +1,12 @@
 #include "CGameManager.h"
+#include "CGameManager.h"
 
 
-void CGameManager::onNotify(const IEvent& event) 
+CGameManager::CGameManager()
+{
+}
+
+void CGameManager::onNotify(const IEvent& event)
 {
   return;
 }

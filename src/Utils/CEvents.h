@@ -55,16 +55,16 @@ namespace Events {
     /// Event pour annoncer au game manager que un gilet a été detecter
     /// <para>Emit par : "CAPI_CommunicationPlayer" et reçut par "CGameManager"</para>
     /// </summary>
-    struct GiletConnecter : public CEvent<float> {
-        explicit GiletConnecter(float intGilet) : CEvent(intGilet) {}
+    struct VestHandshakeReceived : public CEvent<TvestId> {
+        explicit VestHandshakeReceived(TvestId vestId) : CEvent(vestId) {}
     };
 
     /// <summary>
     /// Event que retourne le game manager pour annoncer que toutes les info de partie sont prete
     /// <para>Emit par : "CGameManager" et reçut par "CAPI_CommunicationFront" et "CAPI_CommunicationPlayer"</para>
     /// </summary>
-    struct GameReady : public CEvent<GameData> {
-        explicit GameReady( GameData data_complete) : CEvent(data_complete) {}
+    struct Ready : public CEvent<GameData> {
+        explicit Ready(GameData data_complete) : CEvent(data_complete) {}
     };
 
     /// <summary>
@@ -80,8 +80,8 @@ namespace Events {
     /// Event pour le demarage de la partie
     /// <para>Emit par : "CGameManager" et reçut par "CAPI_CommunicationFront" et "CAPI_CommunicationPlayer"</para>
     /// </summary>
-    struct DemarerJeu : public CEvent<bool> {
-        explicit DemarerJeu(bool start) : CEvent(start) {}
+    struct Start : public CEvent<bool> {
+        explicit Start(bool start) : CEvent(start) {}
     };
   }
 
@@ -90,24 +90,8 @@ namespace Events {
     /// <summary>
     /// event pour le debug uniquement
     /// </summary>
-    struct SignalReceived : public CEvent<std::vector<uint8_t>> {   
-      explicit SignalReceived(const std::vector<uint8_t>& data) : CEvent(data) {}
-    };
-
-    /// <summary>
-    /// Lui je sais pas a quoi il sers 
-    /// </summary>
-    struct BroadcastMessage : public CEvent<std::string> {
-      explicit BroadcastMessage(const std::string& msg) : CEvent(msg) {}
-    };
-
-
-    /// <summary>
-    /// Event pour la reception d'un ID d'un gilet pour le connceter
-    /// <para>Emit par : "CAPI_CommunicationPlayer" et reçut par "CGameManager"</para>
-    /// </summary>
-    struct SignalGiletReceived : public CEvent<std::vector<uint8_t>> {
-        explicit SignalGiletReceived(const std::vector<uint8_t>& intGilet) : CEvent(intGilet) {}
+    struct SignalReceived : public CEvent<DataStructure::VestRadioCommunication::VestRadioData> {   
+      explicit SignalReceived(const DataStructure::VestRadioCommunication::VestRadioData& data) : CEvent(data) {}
     };
 
   }

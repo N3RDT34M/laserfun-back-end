@@ -4,6 +4,8 @@
 #include <chrono>
 #include <memory>
 
+using TvestId = uint16_t;
+
 struct PlayerData;
 
 enum PlayerClass : uint8_t {
@@ -30,11 +32,12 @@ struct PlayerStats {
   //std::vector<UltiData> ultis;
 };
 
+
 struct PlayerData {
   std::string name;
   PlayerClass character;
   std::shared_ptr<PlayerStats> stats;
-  std::shared_ptr<Gilet> id_gilet;
+  TvestId id_gilet;
 };
 
 struct GameData {
@@ -44,7 +47,6 @@ struct GameData {
   std::vector<std::shared_ptr<PlayerData>> redPlayers;
 };
 
-using TvestId = uint16_t;
 
 struct c_string {
   uint8_t size;
@@ -63,11 +65,10 @@ namespace DataStructure {
       ULTI
     };
 
-    template <typename Tdata>
     struct VestRadioData {
       Action action;
       TvestId vestid;
-      Tdata data;
+      void* data;
     };
 
     struct AuthentificationData {
@@ -82,8 +83,3 @@ namespace DataStructure {
     };
   }
 }
-
-struct Gilet
-{
-	std::string id_gilet;
-};
