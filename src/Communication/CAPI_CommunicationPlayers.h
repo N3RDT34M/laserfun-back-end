@@ -11,4 +11,6 @@ public:
 public:
   void onNotify(const IEvent& event) override;
 
+  void handleSignalReceived(const DataStructure::VestRadioCommunication::VestActionRadioData& data);
+
 };

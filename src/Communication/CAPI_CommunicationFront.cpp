@@ -19,6 +19,8 @@ void CAPI_CommunicationFront::onNotify(const IEvent& event)
 
 void CAPI_CommunicationFront::handleJsonRequest(const nlohmann::json& data)
 {
+  using namespace DataStructure::Game;
+
   std::shared_ptr<GameData> gameData = std::make_shared<GameData>();
   gameData->blueName = data["nameBlue"];
   gameData->redName = data["nameRed"];

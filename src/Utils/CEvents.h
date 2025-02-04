@@ -32,8 +32,8 @@ namespace Events {
     /// Requete du front qui envoie des info de joueur et de la partie
     /// <para>Emit par : "CAPI_CommunicationFront" et reçut par "CGameManager" </para>
     /// </summary>
-    struct GameCreationRequest : public CEvent<std::shared_ptr<GameData>> {
-      explicit GameCreationRequest(std::shared_ptr<GameData> result) : CEvent(result) {}
+    struct GameCreationRequest : public CEvent<std::shared_ptr<DataStructure::Game::GameData>> {
+      explicit GameCreationRequest(std::shared_ptr<DataStructure::Game::GameData> result) : CEvent(result) {}
     };
 
     /// <summary>
@@ -45,26 +45,19 @@ namespace Events {
     };
 
     /// <summary>
-    /// lui je sais pas a quoi il sers
-    /// </summary>
-    struct PlayerScore : public CEvent<float> {
-      explicit PlayerScore(float score) : CEvent(score) {}
-    };
-
-    /// <summary>
     /// Event pour annoncer au game manager que un gilet a été detecter
     /// <para>Emit par : "CAPI_CommunicationPlayer" et reçut par "CGameManager"</para>
     /// </summary>
-    struct VestHandshakeReceived : public CEvent<TvestId> {
-        explicit VestHandshakeReceived(TvestId vestId) : CEvent(vestId) {}
+    struct VestHandshakeRequest : public CEvent<std::shared_ptr<DataStructure::Game::VestActionData<void>>> {
+        explicit VestHandshakeRequest(std::shared_ptr<DataStructure::Game::VestActionData<void>> hs) : CEvent(hs) {}
     };
 
     /// <summary>
     /// Event que retourne le game manager pour annoncer que toutes les info de partie sont prete
     /// <para>Emit par : "CGameManager" et reçut par "CAPI_CommunicationFront" et "CAPI_CommunicationPlayer"</para>
     /// </summary>
-    struct Ready : public CEvent<GameData> {
-        explicit Ready(GameData data_complete) : CEvent(data_complete) {}
+    struct Ready : public CEvent<DataStructure::Game::GameData> {
+        explicit Ready(DataStructure::Game::GameData data_complete) : CEvent(data_complete) {}
     };
 
     /// <summary>
@@ -83,15 +76,22 @@ namespace Events {
     struct Start : public CEvent<bool> {
         explicit Start(bool start) : CEvent(start) {}
     };
+
+
+    struct KillRequest : public CEvent<std::shared_ptr<DataStructure::Game::VestActionData<DataStructure::Game::KillData>>> {
+      explicit KillRequest(std::shared_ptr<DataStructure::Game::VestActionData<DataStructure::Game::KillData>> kill) : CEvent(kill) {}
+    };
+
+
   }
 
   namespace Radio { // event relatif a la radio 
 
     /// <summary>
-    /// event pour le debug uniquement
+    /// Event lorsque le connecteur radio reçoit une communication
     /// </summary>
-    struct SignalReceived : public CEvent<DataStructure::VestRadioCommunication::VestRadioData> {   
-      explicit SignalReceived(const DataStructure::VestRadioCommunication::VestRadioData& data) : CEvent(data) {}
+    struct SignalReceived : public CEvent<DataStructure::VestRadioCommunication::VestActionRadioData> {   
+      explicit SignalReceived(const DataStructure::VestRadioCommunication::VestActionRadioData& data) : CEvent(data) {}
     };
 
   }
